@@ -3,6 +3,10 @@ services:
   mongo:
     image: mongo:3.6
     container_name: ${COMPOSE_PROJECT_NAME}_mongo
+    # Uncomment and modify the following to limit how much memory Mongo will use.
+    # If the cache is too small, this may lead to higher CPU use.
+    # https://www.mongodb.com/docs/manual/faq/storage/#to-what-size-should-i-set-the-wiredtiger-internal-cache-
+    # command: --wiredTigerCacheSizeGB 0.25
     networks:
       - unifi
     restart: always
